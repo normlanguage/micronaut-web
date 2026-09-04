@@ -95,7 +95,7 @@ public DataSource h2DataSource(
 @Serializable()
 public value DataSources {
   @SerialName(name: "default")
-  DataSource defaultSource
+  DataSource defaultSource = h2DataSource(database: "./.norm/data/application")
 }
 
 public enum SchemaMode { CreateDrop, Create, Update, Validate, None }
@@ -179,7 +179,7 @@ public class RunningMicronautApplication {
 }
 
 public class MicronautApplication implements Application {
-  MicronautConfig config
+  MicronautConfig config = MicronautConfig()
 
   public RunningMicronautApplication start() {
     MutableMap<String?, Any?> properties = configurationProperties(value: config)
