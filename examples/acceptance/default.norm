@@ -1,0 +1,16 @@
+package hello.web
+
+import micronaut.web.MicronautApplication
+import std.application.Application
+
+Module module() {
+  return module(
+    dependencies: [
+      dependency(repository: "github", name: "micronaut.web", version: 4)
+    ]
+  )
+}
+
+public Application application() {
+  return MicronautApplication()
+}
