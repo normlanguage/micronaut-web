@@ -1,0 +1,19 @@
+package tests
+
+import micronaut.web.DataSources
+import micronaut.web.h2DataSource
+import micronaut.web.H2Storage
+import micronaut.web.MicronautConfig
+
+import std.application.applicationDirectory
+import std.configuration.configurationProperties
+
+Void main() {
+  var memory = configurationProperties(value: MicronautConfig(datasources: DataSources()))
+  require(condition: memory.get("datasources.default.url") == "jdbc:h2:mem:application;DB_CLOSE_DELAY=-1", message: "Default database must be in memory")
+  var file = configurationProperties(value: MicronautConfig(datasources: DataSources(defaultSource: h2DataSource(storage: H2Storage.File))))
+  require(condition: file.get("datasources.default.url") == "jdbc:h2:file:" + applicationDirectory().value + "/application", message: "Default file database must use the application directory")
+  var explicit = configurationProperties(value: MicronautConfig(datasources: DataSources(defaultSource: h2DataSource(database: "./chosen/database", storage: H2Storage.File))))
+  require(condition: explicit.get("datasources.default.url") == "jdbc:h2:file:./chosen/database", message: "Explicit database paths must not change")
+  printLine("Database configuration passed")
+}

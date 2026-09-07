@@ -4,6 +4,7 @@ import micronaut.inject.context.applicationContextRun
 import micronaut.inject.javaStringArrayNew
 import micronaut.runtime.runtime.server.EmbeddedServer
 import std.application.Application
+import std.application.applicationDirectory
 import std.collections.MutableMap
 import std.concurrent.awaitCancellation
 import std.configuration.ConfigurationKey
@@ -74,14 +75,14 @@ public value DataSource {
 public enum H2Storage { File, Memory }
 
 public DataSource h2DataSource(
-  String database,
-  H2Storage storage = H2Storage.File,
+  String? database = null,
+  H2Storage storage = H2Storage.Memory,
   String username = "sa",
   String password = ""
 ) {
   String url = switch storage {
-    case File { break "jdbc:h2:file:" + database }
-    case Memory { break "jdbc:h2:mem:" + database + ";DB_CLOSE_DELAY=-1" }
+    case File { break "jdbc:h2:file:" + (database ?? applicationDirectory().value + "/application") }
+    case Memory { break "jdbc:h2:mem:" + (database ?? "application") + ";DB_CLOSE_DELAY=-1" }
   }
   return DataSource(
     url: url,
@@ -95,7 +96,7 @@ public DataSource h2DataSource(
 @Serializable()
 public value DataSources {
   @SerialName(name: "default")
-  DataSource defaultSource = h2DataSource(database: "./.norm/data/application")
+  DataSource defaultSource = h2DataSource()
 }
 
 public enum SchemaMode { CreateDrop, Create, Update, Validate, None }
