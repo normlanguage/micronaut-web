@@ -1,0 +1,7 @@
+Module module() {
+  return module(
+    name: "examples.acceptance",
+    version: 1,
+    dependencies: [dependency(repository: "github", name: "micronaut.web", version: 4)]
+  )
+}
