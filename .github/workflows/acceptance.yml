@@ -18,9 +18,9 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release download v0.21.2 --repo normlanguage/Norm --pattern norm-v0.21.2-linux-x64.tar.gz --pattern SHA256SUMS --dir "$RUNNER_TEMP/norm-cli"
-          (cd "$RUNNER_TEMP/norm-cli" && grep ' norm-v0.21.2-linux-x64.tar.gz$' SHA256SUMS | sha256sum --check --strict)
-          tar -xzf "$RUNNER_TEMP/norm-cli/norm-v0.21.2-linux-x64.tar.gz" -C "$RUNNER_TEMP/norm-cli"
+          gh release download v0.23.0 --repo normlanguage/Norm --pattern norm-v0.23.0-linux-x64.tar.gz --pattern SHA256SUMS --dir "$RUNNER_TEMP/norm-cli"
+          (cd "$RUNNER_TEMP/norm-cli" && grep ' norm-v0.23.0-linux-x64.tar.gz$' SHA256SUMS | sha256sum --check --strict)
+          tar -xzf "$RUNNER_TEMP/norm-cli/norm-v0.23.0-linux-x64.tar.gz" -C "$RUNNER_TEMP/norm-cli"
           echo "$RUNNER_TEMP/norm-cli/norm/bin" >> "$GITHUB_PATH"
       - name: Package current module
         run: |
