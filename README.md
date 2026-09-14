@@ -1,10 +1,11 @@
 # Micronaut Web
 
-Micronaut HTTP 应用的组合模块，支持 JStachio HTML 渲染。
+Micronaut HTTP 应用的基础组合模块。HTML 示例通过独立的 `micronaut.views.jstachio` 包选择模板引擎。
 
 - [模块与依赖声明](micronaut/web/module.norm)
 - [类型化配置与应用生命周期](micronaut/web/Application.norm)
 - [构建工具链版本](.github/workflows/package.yml)
+- [HTML 示例的依赖声明](examples/acceptance/module.norm)
 - [Controller 与页面模型](examples/acceptance/pages.norm)
 - [HTML 模板](examples/acceptance/resources/templates/home.mustache)
 
