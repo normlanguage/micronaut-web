@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello, {{name}} · Norm</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, sans-serif; color: #17332c; background: #f3f5ee; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; }
+    main { width: min(680px, calc(100% - 64px)); padding: 64px 0; }
+    .label { font-size: 13px; letter-spacing: .16em; color: #537367; }
+    h1 { font-size: clamp(40px, 8vw, 72px); letter-spacing: -.05em; line-height: 1.1; margin: 24px 0; overflow-wrap: anywhere; }
+    p { color: #537367; line-height: 1.8; }
+    ul { list-style: none; padding: 0; margin: 36px 0; border-top: 1px solid #ced9cb; }
+    li { padding: 16px 0; border-bottom: 1px solid #ced9cb; }
+    a { color: #16694a; text-underline-offset: 4px; }
+    footer { margin-top: 48px; font-size: 13px; color: #537367; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="label">NORM / SERVER SIDE HTML</div>
+    <h1>Hello, {{name}}.</h1>
+    <p>一个由 Norm、Micronaut 和 JStachio 渲染的页面。</p>
+    {{#showFeatures}}
+    <ul>{{#features}}<li>{{.}}</li>{{/features}}</ul>
+    {{/showFeatures}}
+    <a href="/greeting?name=Norm">查看内联模板 →</a>
+    <footer>修改地址栏中的 ?name= 参数，试试你的名字。</footer>
+  </main>
+</body>
+</html>

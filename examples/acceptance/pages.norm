@@ -1,0 +1,38 @@
+package examples.acceptance
+
+import jstachio.annotation.JStache
+import micronaut.http.annotation.Controller
+import micronaut.http.annotation.Get
+import micronaut.http.annotation.QueryValue
+
+@JStache(path: "templates/home.mustache")
+public value HomePage {
+  String name
+  List<String> features
+  Boolean showFeatures
+}
+
+@JStache(template: "<p>Hello, {{name}}!</p>")
+public value Greeting {
+  String name
+}
+
+@Controller("/")
+public class Pages {
+  @Get(value: "/", produces: ["text/html"])
+  public HomePage home(
+    @QueryValue(defaultValue: "Norm") String name,
+    @QueryValue(defaultValue: "true") Boolean details
+  ) {
+    return HomePage(
+      name: name,
+      features: ["类型化页面模型", "编译期模板检查", "HTML 自动转义"],
+      showFeatures: details
+    )
+  }
+
+  @Get(value: "/greeting", produces: ["text/html"])
+  public Greeting greeting(@QueryValue(defaultValue: "Norm") String name) {
+    return Greeting(name: name)
+  }
+}

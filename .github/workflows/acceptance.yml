@@ -28,4 +28,4 @@ jobs:
           mkdir -p "$HOME/.norm/cache/packages/github"
           cp -R build/repository/. "$HOME/.norm/cache/packages/github/"
       - name: Verify package behavior
-        run: norm test examples/acceptance/default.norm
+        run: node scripts/test.mjs "$(command -v norm)"
