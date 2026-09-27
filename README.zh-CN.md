@@ -1,5 +1,7 @@
 # Micronaut Web
 
+[示例](samples/README.zh-CN.md)启动具有 GET 与表单 POST 路由的本地服务。
+
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 Micronaut HTTP 应用的基础组合模块。HTML 示例通过独立的 `micronaut.views.jstachio` 包选择模板引擎。

@@ -4,6 +4,8 @@
 
 The base composition module for Micronaut HTTP applications. The HTML example selects its template engine through the separate `micronaut.views.jstachio` package.
 
+[Samples](samples/README.md) start a loopback server with GET and form POST routes.
+
 - [Module and dependency declaration](micronaut/web/module.norm)
 - [Typed configuration and application lifecycle](micronaut/web/Application.norm)
 - [Build toolchain versions](.github/workflows/package.yml)

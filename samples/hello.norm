@@ -1,0 +1,34 @@
+import micronaut.http.annotation.Body
+import micronaut.http.annotation.Controller
+import micronaut.http.annotation.Get
+import micronaut.http.annotation.Post
+import micronaut.http.annotation.QueryValue
+import micronaut.web.MicronautApplication
+import micronaut.web.MicronautConfig
+import micronaut.web.Micronaut
+import micronaut.web.Server
+import std.application.Application
+
+@Controller("/sample")
+public class GreetingRoutes {
+  @Get(value: "/hello", produces: ["text/plain"])
+  String hello(@QueryValue(defaultValue: "Norm") String name) {
+    return "Hello, " + name
+  }
+
+  @Post(value: "/echo", consumes: ["application/x-www-form-urlencoded"],
+    produces: ["text/plain"])
+  String echo(@Body(value: "message") String message) {
+    return "Received: " + message
+  }
+}
+
+Module module() {
+  module(dependencies: [dependency(repository: "github", name: "micronaut.web", version: 7)])
+}
+
+public Application application() {
+  return MicronautApplication(config: MicronautConfig(
+    micronaut: Micronaut(server: Server(host: "127.0.0.1", port: 18767))
+  ))
+}
