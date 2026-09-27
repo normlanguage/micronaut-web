@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-[hello.norm](hello.norm) is an independent consumer of `micronaut.web@7`. It starts a loopback server and exposes a query-driven GET route and a form POST route. The sample binds only to `127.0.0.1:18767`.
+[hello.norm](hello.norm) is an independent consumer of the [Micronaut Web module](../micronaut/web/module.norm). It starts a loopback server and exposes a query-driven GET route and a form POST route. The sample binds only to `127.0.0.1:18767`.
 
 From the repository root, run:
 

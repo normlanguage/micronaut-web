@@ -3,8 +3,8 @@ Module module() {
     name: "examples.acceptance",
     version: 1,
     dependencies: [
-      dependency(repository: "github", name: "micronaut.web", version: 6),
-      dependency(repository: "github", name: "micronaut.views.jstachio", version: 1)
+      dependency(repository: "github", name: "micronaut.web", version: 8),
+      dependency(repository: "github", name: "micronaut.views.jstachio", version: 2)
     ]
   )
 }

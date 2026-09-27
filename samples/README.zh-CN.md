@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-[hello.norm](hello.norm) 是 `micronaut.web@7` 的独立消费者，启动仅监听 `127.0.0.1:18767` 的本地服务，提供带查询参数的 GET 路由和接收表单的 POST 路由。
+[hello.norm](hello.norm) 是 [Micronaut Web 模块](../micronaut/web/module.norm)的独立消费者，启动仅监听 `127.0.0.1:18767` 的本地服务，提供带查询参数的 GET 路由和接收表单的 POST 路由。
 
 在仓库根目录运行：
 
