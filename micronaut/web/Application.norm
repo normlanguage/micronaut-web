@@ -5,7 +5,7 @@ import micronaut.inject.javaStringArrayNew
 import micronaut.runtime.runtime.server.EmbeddedServer
 import std.application.Application
 import std.application.applicationDirectory
-import std.collections.MutableMap
+import java.base.util.JavaMap
 import std.concurrent.awaitCancellation
 import std.configuration.ConfigurationKey
 import std.configuration.configurationProperties
@@ -171,7 +171,7 @@ public class RunningMicronautApplication {
   private EmbeddedServer server
 
   public String uri() {
-    return server.getURI()?.value ?? ""
+    return server.getURI()?.toString() ?? ""
   }
 
   public Void close() {
@@ -183,7 +183,7 @@ public class MicronautApplication implements Application {
   MicronautConfig config = MicronautConfig()
 
   public RunningMicronautApplication start() {
-    MutableMap<String?, Any?> properties = configurationProperties(value: config)
+    JavaMap<String, Any> properties = configurationProperties(value: config)
     EmbeddedServer? server = applicationContextRun<EmbeddedServer>(
       arg0: EmbeddedServer.class,
       arg1: properties,
