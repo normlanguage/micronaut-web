@@ -20,21 +20,9 @@ jobs:
           ref=$(sed -n 's/^      norm-source-ref: //p' .github/workflows/package.yml)
           test "${#ref}" -eq 40
           echo "ref=$ref" >> "$GITHUB_OUTPUT"
-      - uses: actions/checkout@v6
+      - uses: normlanguage/registry/.github/actions/setup-norm@c42fcb813fd549d179896d358eb774543a9b6c0d
         with:
-          repository: normlanguage/Norm
-          ref: ${{ steps.toolchain.outputs.ref }}
-          path: .norm-toolchain
-      - uses: actions/setup-java@v5
-        with:
-          distribution: temurin
-          java-version: '25'
-      - name: Build Norm toolchain
-        working-directory: .norm-toolchain
-        run: |
-          chmod +x gradlew
-          ./gradlew :compiler:installRuntimeDist --no-daemon
-          echo "$GITHUB_WORKSPACE/.norm-toolchain/build/compiler/norm-runtime/bin" >> "$GITHUB_PATH"
+          source-ref: ${{ steps.toolchain.outputs.ref }}
       - name: Package current module
         run: |
           norm package micronaut/web/module.norm --output build/repository
