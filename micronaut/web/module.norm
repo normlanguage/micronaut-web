@@ -24,7 +24,7 @@ Module module() {
       dependency(repository: "github", name: "micronaut.serde.jackson", version: 5),
       dependency(repository: "github", name: "micronaut.serde.processor", version: 5),
       dependency(repository: "github", name: "micronaut.inject.processor", version: 5),
-      dependency(repository: "github", name: "micronaut.validation.processor", version: 3)
+      dependency(repository: "github", name: "micronaut.validation.processor", version: 4)
     ]
   )
 }
