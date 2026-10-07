@@ -4,7 +4,7 @@ Module module() {
     version: 1,
     dependencies: [
       dependency(repository: "github", name: "micronaut.web", version: 10),
-      dependency(repository: "github", name: "micronaut.views.jstachio", version: 2)
+      dependency(repository: "github", name: "micronaut.views.jstachio", version: 3)
     ]
   )
 }
