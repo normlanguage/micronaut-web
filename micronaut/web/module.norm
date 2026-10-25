@@ -1,18 +1,18 @@
 Module module() {
   return module(
     name: "micronaut.web",
-    version: 10,
+    version: 11,
     exports: ["Application"],
     dependencies: [
       dependency(repository: "norm", name: "java.base", version: 1),
       exportedDependency(repository: "github", name: "micronaut.http", version: 5),
       exportedDependency(repository: "github", name: "micronaut.http.client", version: 4),
-      exportedDependency(repository: "github", name: "micronaut.aop", version: 5),
+
       exportedDependency(repository: "github", name: "micronaut.core", version: 5),
-      exportedDependency(repository: "github", name: "micronaut.inject", version: 5),
+      exportedDependency(repository: "github", name: "micronaut.inject", version: 6),
       exportedDependency(repository: "github", name: "micronaut.runtime", version: 4),
       exportedDependency(repository: "github", name: "micronaut.serde.api", version: 5),
-      exportedDependency(repository: "github", name: "jakarta.inject", version: 5),
+      exportedDependency(repository: "github", name: "jakarta.inject", version: 6),
       exportedDependency(repository: "github", name: "jakarta.validation", version: 5),
       exportedDependency(repository: "github", name: "micronaut.validation", version: 4),
       exportedDependency(repository: "github", name: "micronaut.security", version: 5),
@@ -23,8 +23,10 @@ Module module() {
       dependency(repository: "github", name: "micronaut.json", version: 4),
       dependency(repository: "github", name: "micronaut.serde.jackson", version: 5),
       dependency(repository: "github", name: "micronaut.serde.processor", version: 5),
-      dependency(repository: "github", name: "micronaut.inject.processor", version: 5),
+      dependency(repository: "github", name: "micronaut.inject.processor", version: 6),
       dependency(repository: "github", name: "micronaut.validation.processor", version: 4)
     ]
   )
 }
+
+
