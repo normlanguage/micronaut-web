@@ -17,9 +17,9 @@ jobs:
       - name: Resolve Norm toolchain
         id: toolchain
         run: |
-          version=$(sed -n 's/^      norm-version: //p' .github/workflows/package.yml)
-          test -n "$version"
-          echo "version=$version" >> "$GITHUB_OUTPUT"
+          source_ref=$(sed -n 's/^      norm-version: //p' .github/workflows/package.yml)
+          test -n "$source_ref"
+          echo "source_ref=$version" >> "$GITHUB_OUTPUT"
       - uses: normlanguage/registry/.github/actions/setup-norm@d229852448570c786a3f86e62c7db36769ed9a18
         with:
           version: ${{ steps.toolchain.outputs.version }}
@@ -30,3 +30,4 @@ jobs:
           cp -R build/repository/. "$HOME/.norm/cache/packages/github/"
       - name: Verify package behavior
         run: node scripts/test.mjs "$(command -v norm)"
+
