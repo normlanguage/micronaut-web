@@ -19,8 +19,7 @@ jobs:
         run: |
           source_ref=$(sed -n 's/^      norm-source-ref: //p' .github/workflows/package.yml)
           test -n "$source_ref"
-          source_ref=$(sed -n 's/^      norm-source-ref: //p' .github/workflows/package.yml)
-      - uses: normlanguage/registry/.github/actions/setup-norm@d229852448570c786a3f86e62c7db36769ed9a18
+          echo "source_ref=$source_ref" >> "$GITHUB_OUTPUT"      - uses: normlanguage/registry/.github/actions/setup-norm@d229852448570c786a3f86e62c7db36769ed9a18
         with:
           source-ref: ${{ steps.toolchain.outputs.source_ref }}
       - name: Package current module
@@ -30,4 +29,5 @@ jobs:
           cp -R build/repository/. "$HOME/.norm/cache/packages/github/"
       - name: Verify package behavior
         run: node scripts/test.mjs "$(command -v norm)"
+
 
