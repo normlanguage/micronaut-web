@@ -1,5 +1,7 @@
 # Micronaut Web
 
+本项目使用 [Norm](https://github.com/normlanguage/Norm) 构建。
+
 [示例](samples/README.zh-CN.md)启动具有 GET 与表单 POST 路由的本地服务。
 
 [English](README.md) | [简体中文](README.zh-CN.md)
