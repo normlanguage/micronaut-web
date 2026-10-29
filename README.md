@@ -1,5 +1,7 @@
 # Micronaut Web
 
+Built with [Norm](https://github.com/normlanguage/Norm).
+
 [English](README.md) | [简体中文](README.zh-CN.md)
 
 The base composition module for Micronaut HTTP applications. The HTML example selects its template engine through the separate `micronaut.views.jstachio` package.
