@@ -8,6 +8,7 @@
 
 Micronaut HTTP 应用的基础组合模块。HTML 示例通过独立的 `micronaut.views.jstachio` 包选择模板引擎。
 
+- [应用日志配置](https://github.com/normlanguage/Norm/blob/main/docs/zh/stdlib/logging.md)
 - [模块与依赖声明](micronaut/web/module.norm)
 - [类型化配置与应用生命周期](micronaut/web/Application.norm)
 - [构建工具链版本](.github/workflows/package.yml)

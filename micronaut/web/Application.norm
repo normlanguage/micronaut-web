@@ -10,6 +10,7 @@ import std.concurrent.awaitCancellation
 import std.configuration.ConfigurationKey
 import std.configuration.configurationProperties
 import std.core.Exception
+import std.logging.logInfo
 import std.serialization.SerialName
 import std.serialization.Serializable
 
@@ -197,7 +198,7 @@ public class MicronautApplication implements Application {
 
   public Void run() {
     RunningMicronautApplication running = this.start()
-    printLine("Micronaut: " + running.uri())
+    logInfo("Micronaut: " + running.uri())
     try {
       awaitCancellation()
     } finally {
