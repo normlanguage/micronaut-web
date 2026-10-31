@@ -17,11 +17,11 @@ Module module() {
       exportedDependency(repository: "github", name: "micronaut.validation", version: 6),
       exportedDependency(repository: "github", name: "micronaut.security", version: 6),
       exportedDependency(repository: "github", name: "reactor.core", version: 7),
-      dependency(repository: "github", name: "micronaut.http.client.netty", version: 6),
+      dependency(repository: "github", name: "micronaut.http.client.netty", version: 7),
       dependency(repository: "github", name: "micronaut.management", version: 5),
       dependency(repository: "github", name: "micronaut.server.netty", version: 6),
       dependency(repository: "github", name: "micronaut.json", version: 6),
-      dependency(repository: "github", name: "micronaut.serde.jackson", version: 9),
+      dependency(repository: "github", name: "micronaut.serde.jackson", version: 10),
       dependency(repository: "github", name: "micronaut.serde.processor", version: 6),
       dependency(repository: "github", name: "micronaut.inject.processor", version: 14),
       dependency(repository: "github", name: "micronaut.validation.processor", version: 5)
