@@ -19,16 +19,19 @@ const server = spawn(executable,
   [...prefix, 'run', resolve(repository, 'examples/acceptance/default.norm')],
   { cwd: repository, windowsHide: true, stdio: ['ignore', 'pipe', 'pipe'] });
 let logs = '';
-server.stdout.on('data', data => { logs += data; });
+let output = '';
+server.stdout.on('data', data => { output += data; });
 server.stderr.on('data', data => { logs += data; });
 server.on('error', error => { logs += error.message; });
 try {
   const deadline = Date.now() + 180000;
   while (!logs.includes('Micronaut: http://')) {
+    assert.equal(output, '', 'Server startup must preserve application stdout');
     assert.equal(server.exitCode, null, logs);
     assert.ok(Date.now() < deadline, logs || 'Server startup timed out');
     await setTimeout(250);
   }
+  assert.equal(output, '', 'Server startup must preserve application stdout');
   const base = logs.match(/Micronaut: (http:\/\/[^\s]+)/)[1];
   const home = await fetch(base);
   assert.equal(home.status, 200);

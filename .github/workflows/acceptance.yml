@@ -17,12 +17,12 @@ jobs:
       - name: Resolve Norm toolchain
         id: toolchain
         run: |
-          ref=$(sed -n 's/^      norm-source-ref: //p' .github/workflows/package.yml)
-          test "${#ref}" -eq 40
-          echo "ref=$ref" >> "$GITHUB_OUTPUT"
-      - uses: normlanguage/registry/.github/actions/setup-norm@c42fcb813fd549d179896d358eb774543a9b6c0d
+          version=$(sed -n 's/^      norm-version: //p' .github/workflows/package.yml)
+          test -n "$version"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+      - uses: normlanguage/registry/.github/actions/setup-norm@581776aacb8d214de3a9fb30ec2abb4f422c89bb
         with:
-          source-ref: ${{ steps.toolchain.outputs.ref }}
+          version: ${{ steps.toolchain.outputs.version }}
       - name: Package current module
         run: |
           norm package micronaut/web/module.norm --output build/repository

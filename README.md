@@ -8,6 +8,7 @@ The base composition module for Micronaut HTTP applications. The HTML example se
 
 [Samples](samples/README.md) start a loopback server with GET and form POST routes.
 
+- [Application logging configuration](https://github.com/normlanguage/Norm/blob/main/docs/stdlib/logging.md)
 - [Module and dependency declaration](micronaut/web/module.norm)
 - [Typed configuration and application lifecycle](micronaut/web/Application.norm)
 - [Build toolchain versions](.github/workflows/package.yml)
@@ -22,3 +23,5 @@ norm run examples/acceptance/default.norm
 ```
 
 Visit <http://127.0.0.1:8080>. See [scripts/test.mjs](scripts/test.mjs) for the configuration and HTTP verification entry point.
+
+[License](LICENSE)
