@@ -23,3 +23,5 @@ norm run examples/acceptance/default.norm
 ```
 
 Visit <http://127.0.0.1:8080>. See [scripts/test.mjs](scripts/test.mjs) for the configuration and HTTP verification entry point.
+
+[License](LICENSE)

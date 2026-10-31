@@ -23,3 +23,5 @@ norm run examples/acceptance/default.norm
 ```
 
 访问 <http://127.0.0.1:8080>。配置与 HTTP 验证入口见 [scripts/test.mjs](scripts/test.mjs)。
+
+[许可证](LICENSE)

@@ -24,7 +24,7 @@ public class GreetingRoutes {
 }
 
 Module module() {
-  module(dependencies: [dependency(repository: "github", name: "micronaut.web", version: 10)])
+  module(dependencies: [dependency(repository: "github", name: "micronaut.web", version: 11)])
 }
 
 public Application application() {
